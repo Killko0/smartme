@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">smartme</string>
+    <string name="title_activity_methods_overview">MethodsOverview</string>
+    <string name="tab_1">Hello</string>
+</resources>
