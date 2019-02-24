@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(berlin.code.smartme.smartme.R.layout.activity_main)
         //Setting up the bottom navbar
-        bottom_navigation.setBehaviorTranslationEnabled (false)
         val item1 = AHBottomNavigationItem(
            "Home",
             R.drawable.ic_delete
@@ -36,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation.addItem(item1)
         bottom_navigation.addItem(item1)
 
+        //Populating the horizontal list
         for (i in 0..19) {
             val imageView = ImageView(this)
             imageView.setId(i)

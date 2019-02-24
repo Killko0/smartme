@@ -20,7 +20,7 @@
     />
     <ImageView
             android:layout_width="332dp"
-            android:layout_height="255dp" tools:srcCompat="@tools:sample/avatars"
+            android:layout_height="255dp" tools:srcCompat="@drawable/current"
             android:id="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="40dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="39dp"
