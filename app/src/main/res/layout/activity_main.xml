@@ -11,10 +11,10 @@
             android:layout_height="174dp"
             android:scrollbars="none"
             app:layout_constraintTop_toTopOf="parent" android:visibility="visible" android:layout_marginTop="112dp"
-            android:layout_width="383dp" android:layout_marginBottom="107dp"
-            app:layout_constraintBottom_toTopOf="@+id/button" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="383dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.571"
-            app:layout_constraintVertical_bias="0.0">
+    >
 
         <LinearLayout
                 android:id="@+id/linear"
@@ -27,14 +27,15 @@
     </HorizontalScrollView>
     <Button
             android:text="Let's go!"
-            android:layout_width="97dp"
-            android:layout_height="47dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/button"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:onClick="goMethodsOverview"
-            app:layout_constraintVertical_bias="0.576"/>
+            android:onClick="goMethodsOverview"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_scroll"
+            app:layout_constraintBottom_toTopOf="@+id/coordinator"/>
     <android.support.design.widget.CoordinatorLayout
             android:id="@+id/coordinator"
             android:layout_width="match_parent"

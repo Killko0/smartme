@@ -30,19 +30,27 @@ class MainActivity : AppCompatActivity() {
            "Home",
             R.drawable.ic_delete
         )
-        bottom_navigation.addItem(item1)
-        bottom_navigation.addItem(item1)
-        bottom_navigation.addItem(item1)
-        bottom_navigation.addItem(item1)
 
+        bottom_navigation.addItem(item1)
+        bottom_navigation.addItem(item1)
+        bottom_navigation.addItem(item1)
+        bottom_navigation.addItem(item1)
+        var ic = berlin.code.smartme.smartme.R.drawable.square
         //Populating the horizontal list
         for (i in 0..19) {
             val imageView = ImageView(this)
             imageView.setId(i)
-            imageView.setPadding(2, 2, 2, 2)
+
+            when (i){
+                0->  ic =berlin.code.smartme.smartme.R.drawable.square
+                1->  ic = R.drawable.ic_dialog_email
+                else-> ic =berlin.code.smartme.smartme.R.drawable.square
+            }
+            imageView.setPadding(100, 2, 2, 2)
             imageView.setImageBitmap(
                 BitmapFactory.decodeResource(
-                    resources, R.drawable.ic_delete
+
+                    resources,ic
                 )
             )
             imageView.setScaleType(ScaleType.FIT_XY)
