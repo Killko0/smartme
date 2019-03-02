@@ -32,11 +32,15 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     //private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    @Override
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Make sure this is before calling super.onCreate
+        //setTheme(R.style.Theme_MyApp);
+
         super.onCreate(savedInstanceState)
         setContentView(berlin.code.smartme.smartme.R.layout.activity_main)
-        if (getSupportActionBar() != null) {
-            getSupportActionBar()!!.hide();
+        if (supportActionBar != null) {
+            supportActionBar!!.hide();
         }
         //Setting up the bottom navbar
         bottom_navigation.titleState = AHBottomNavigation.TitleState.ALWAYS_HIDE

@@ -9,6 +9,27 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".survey.Survey_6">
+        </activity>
+        <activity android:name=".survey.Survey_5">
+        </activity>
+        <activity android:name=".survey.Survey_4">
+        </activity>
+        <activity android:name=".survey.Survey_3">
+        </activity>
+        <activity android:name=".survey.Survey_2">
+        </activity>
+        <activity android:name=".survey.Survey_1">
+        </activity>
+        <activity android:name=".survey.StartSurvery">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Splash">
+        </activity>
         <activity android:name=".MethodDetailActivity">
         </activity>
         <activity
@@ -17,19 +38,16 @@
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
-        <receiver android:name=".MyBroadcastReceiver"  android:exported="true">
+
+        <receiver
+                android:name=".MyBroadcastReceiver"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.INPUT_METHOD_CHANGED" />
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED"/>
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>
