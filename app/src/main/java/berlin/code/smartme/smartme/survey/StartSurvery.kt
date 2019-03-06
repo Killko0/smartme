@@ -10,6 +10,10 @@ class StartSurvery : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide();
+        }
+
         setContentView(R.layout.activity_start_survery)
     }
     fun startSurvey(view: View){

@@ -9,9 +9,9 @@
         <string name="label_question_2">2ème question</string>
         <string name="content_question_2">Habitez-vous dans un appartement ou dans une maison?</string>
         <string name="label_house">Maison</string>
-        <string name="label_flat">Appartement</string>
+    <string name="label_flat">Appartement</string>
     <string name="title_activity_methods_overview" translatable="false">MethodsOverview</string>
     <string name="tab_1" translatable="false">Hello</string>
-    <string name="content_question_1" translatable="false">What is your name?</string>
+    <string name="content_question_1" translatable="false">Comment vous appelez-vous?</string>
 
 </resources>

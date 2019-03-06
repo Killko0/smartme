@@ -11,6 +11,9 @@ class Survey_6 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide();
+        }
         setContentView(R.layout.activity_survey_6)
     }
     fun nextStep(view: View){

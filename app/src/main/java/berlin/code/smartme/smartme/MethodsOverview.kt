@@ -17,7 +17,9 @@ class MethodsOverview : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_methods_overview)
-
+        if (supportActionBar != null) {
+            supportActionBar!!.hide();
+        }
         val methods = arrayOf("Close the windows","Switch off the lights","Don't use electricity","Close the windows","Switch off the lights","Don't use electricity","Close the windows","Switch off the lights","Don't use electricity","Close the windows","Switch off the lights","Don't use electricity","Close the windows","Switch off the lights","Don't use electricity","Close the windows","Switch off the lights","Don't use electricity")
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, methods)
         val listView: ListView = findViewById(R.id.listview)
