@@ -1,5 +1,5 @@
 <resources>
-        <string name="app_name">smartme</string>
+        <string name="app_name">Marcou</string>
         <string name="label_welcome">Bienvenue!</string>
         <string name="label_survey">Installer mon compte Marcou</string>
         <string name="label_skip">Plus tard</string>
