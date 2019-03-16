@@ -13,6 +13,8 @@ import android.app.Notification.EXTRA_NOTIFICATION_ID
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.arch.lifecycle.ViewModelProviders
+import android.arch.persistence.room.Entity
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.pm.PackageManager
@@ -38,16 +40,23 @@ import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import berlin.code.smartme.smartme.data.UserDatabase
 
 class MainActivity : AppCompatActivity() {
     //private lateinit var viewAdapter: RecyclerView.Adapter<*>
-
+    private lateinit var mainViewModel: MainViewModel
 
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         // Make sure this is before calling super.onCreate
         //setTheme(R.style.Theme_MyApp);
         super.onCreate(savedInstanceState)
+        //Setting up DB for survey
+        //TODO Add if statement db exists already
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        Log.d("Users",mainViewModel.allUsers[0].firstName.toString())
+
+
         val serviceIntent= Intent(this, LocationService::class.java)
         startService(serviceIntent)
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 2)
