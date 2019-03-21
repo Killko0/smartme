@@ -4,17 +4,17 @@ import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
 import android.os.AsyncTask
+import android.util.Log
 import berlin.code.smartme.smartme.data.User
 import berlin.code.smartme.smartme.data.UserDatabase
 import berlin.code.smartme.smartme.data.UserRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import kotlin.concurrent.thread
 import kotlin.coroutines.CoroutineContext
 
 
 class MainViewModel(application: Application) : AndroidViewModel(application){
+
     private val repository: UserRepository
     private var parentJob = Job()
     private val coroutineContext: CoroutineContext
@@ -22,17 +22,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
     private val scope = CoroutineScope(coroutineContext)
 
 
-    val allUsers: List<User>
-
-    init {
+    val allUsers: LiveData<List<User>>
 
 
 
-            val wordsDao = UserDatabase.getDatabase(application, scope).userDao()
-            repository = UserRepository(wordsDao)
-            allUsers = repository.allUsers
+     init {
+                val wordsDao = UserDatabase.getDatabase(application, scope).userDao()
+                repository = UserRepository(wordsDao)
 
-
+                allUsers = repository.allUsers
+                thread(start = true) {
+                    Log.d("Thread", Thread.currentThread().toString())
+                }
     }
 
     fun insert(user: User) = scope.launch(Dispatchers.IO) {

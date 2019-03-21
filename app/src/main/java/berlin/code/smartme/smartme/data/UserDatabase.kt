@@ -7,18 +7,19 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
+//Declaring the DB TODO Change name to app database
 @Database(entities = arrayOf(User::class), version = 1)
-abstract class UserDatabase : RoomDatabase() {
+abstract class UserDatabase : RoomDatabase()  {
     abstract fun userDao(): UserDao
 
-    //Making sure its singleton
+    //Making sure its singleton, meaning there only can be one instance of the DB at a time
     companion object {
         @Volatile
         private var INSTANCE: UserDatabase? = null
 
         fun getDatabase(context: Context, scope: CoroutineScope): UserDatabase {
             val tempInstance = INSTANCE
+            //Checking whether instance of DB already exists or not
             if (tempInstance != null) {
                 return tempInstance
             }
@@ -27,13 +28,13 @@ abstract class UserDatabase : RoomDatabase() {
                     context.applicationContext,
                     UserDatabase::class.java,
                     "User_database"
-                ).addCallback(Companion.UserDatabaseCallback(scope)).allowMainThreadQueries().build()
+                ).addCallback(Companion.UserDatabaseCallback(scope)).build() //.allowMainThreadQueries()
                 INSTANCE = instance
                 return instance
             }
         }
 
-
+        //Pre-populating the DB on a co-routine
         private class UserDatabaseCallback(
             private val scope: CoroutineScope
         ) : RoomDatabase.Callback() {

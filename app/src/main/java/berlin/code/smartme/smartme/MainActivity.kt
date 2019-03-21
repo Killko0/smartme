@@ -13,6 +13,7 @@ import android.app.Notification.EXTRA_NOTIFICATION_ID
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.arch.persistence.room.Entity
 import android.content.BroadcastReceiver
@@ -34,15 +35,18 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.ContextCompat.getSystemService
 import android.support.v4.content.ContextCompat.startActivity
 import android.widget.ImageView
 import android.widget.Toast
+import berlin.code.smartme.smartme.data.User
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import berlin.code.smartme.smartme.data.UserDatabase
+import org.jetbrains.annotations.Nullable
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     //private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var mainViewModel: MainViewModel
 
@@ -52,9 +56,20 @@ class MainActivity : AppCompatActivity() {
         //setTheme(R.style.Theme_MyApp);
         super.onCreate(savedInstanceState)
         //Setting up DB for survey
-        //TODO Add if statement db exists already
+        //TODO Add if statement db is full already
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        Log.d("Users",mainViewModel.allUsers[0].firstName.toString())
+
+        mainViewModel.allUsers.observe(this, Observer <List<User>>{
+            @Override
+            fun onChanged(@Nullable users:List<User> ){
+                Log.d("Users",users.toString())
+            }
+
+            Log.d("Users", mainViewModel.allUsers.value.toString())
+        })
+
+
+
 
 
         val serviceIntent= Intent(this, LocationService::class.java)
@@ -124,7 +139,7 @@ class MainActivity : AppCompatActivity() {
             )
             bottom_navigation.setOnTabSelectedListener(AHBottomNavigation.OnTabSelectedListener { position, wasSelected ->
                 // Do something cool here...
-                Log.d("MainActivity", position.toString())
+                //Log.d("MainActivity1", position?.toString())
                 true
             })
             bottom_navigation.setOnNavigationPositionListener(AHBottomNavigation.OnNavigationPositionListener {
@@ -152,7 +167,7 @@ class MainActivity : AppCompatActivity() {
                 imageView.setPadding(2, 2, 2, 2)
 
                 imageView.setOnClickListener {
-                    Log.d("MainActivity", imageView.id.toString())
+                    //Log.d("MainActivity", imageView.id.toString())
                 }
                 imageView.setImageResource(
                     ic

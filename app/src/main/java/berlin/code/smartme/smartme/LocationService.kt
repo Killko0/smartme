@@ -24,17 +24,15 @@ class LocationService : Service() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
             // Permission is not granted
-            Log.d("MainActivity", "NOT GRANTED")
+            Log.d("Locationservice", "NOT GRANTED")
         }
         fusedLocationClient.lastLocation
             .addOnSuccessListener { location : Location? ->
                 // Got last known location. In some rare situations this can be null.
-
-                Log.d("LocationService", Build.VERSION.SDK_INT.toString())
                 if (location == null){
-                    Log.d("MainActivity", "NULL")
+                    Log.d("LocationService", "Location is null")
                 }
-                Log.d("LocationService", location?.toString())
+                //Log.d("LocationService", location?.toString())
             }
         Log.d("LocationService","Service started")
         return super.onStartCommand(intent, flags, startId)
