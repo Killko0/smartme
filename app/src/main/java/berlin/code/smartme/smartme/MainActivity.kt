@@ -71,7 +71,8 @@ class MainActivity : AppCompatActivity(){
 
 
 
-
+        val initIntent = Intent(this, Roadmap::class.java)
+        startActivity(initIntent)
         val serviceIntent= Intent(this, LocationService::class.java)
         startService(serviceIntent)
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 2)
