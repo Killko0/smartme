@@ -17,7 +17,7 @@ class HabitChoosing : Fragment() {
     companion object {
         fun newInstance() = HabitChoosing()
     }
-
+    private val thisScope = this
     private lateinit var viewModel: HabitChoosingViewModel
 
     override fun onCreateView(
@@ -39,10 +39,10 @@ class HabitChoosing : Fragment() {
 
 
     }
-     fun onAccept(view:View?){
+     private fun onAccept(view:View?){
         viewModel.count++
         if (viewModel.count == 3) {
-            getFragmentManager()?.beginTransaction()?.remove(this)?.commitAllowingStateLoss()
+            fragmentManager?.beginTransaction()?.remove(thisScope)?.commit()
             Log.d("HabitChoosing","Fragment killed")
         }
     }

@@ -3,8 +3,8 @@ package berlin.code.smartme.smartme
 import android.arch.lifecycle.ViewModel
 
 class HabitChoosingViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
-    val text = "HELLO THEEEEERE"
+    // TODO: Give it more functionality
+    val text = "HELLO"
     var count = 0
 
 }

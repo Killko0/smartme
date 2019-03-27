@@ -45,6 +45,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import berlin.code.smartme.smartme.data.UserDatabase
 import org.jetbrains.annotations.Nullable
+import berlin.code.smartme.smartme.data.HabitsData
 
 class MainActivity : AppCompatActivity(){
     //private lateinit var viewAdapter: RecyclerView.Adapter<*>
@@ -52,10 +53,14 @@ class MainActivity : AppCompatActivity(){
 
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
+
         // Make sure this is before calling super.onCreate
         //setTheme(R.style.Theme_MyApp);
         super.onCreate(savedInstanceState)
         //Setting up DB for survey
+
+        var habitsData= HabitsData()
+        Log.d("Text", habitsData.sys.toString())
         //TODO Add if statement db is full already
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
@@ -64,6 +69,7 @@ class MainActivity : AppCompatActivity(){
             fun onChanged(@Nullable users:List<User> ){
                 Log.d("Users",users.toString())
             }
+
 
             Log.d("Users", mainViewModel.allUsers.value.toString())
         })
