@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(){
         //Setting up DB for survey
 
         var habitsData= HabitsData()
-        Log.d("Text", habitsData.sys.toString())
+        Log.d("Text", habitsData.country)
         //TODO Add if statement db is full already
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
