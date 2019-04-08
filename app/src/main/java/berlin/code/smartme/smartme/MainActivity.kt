@@ -50,6 +50,7 @@ import berlin.code.smartme.smartme.data.HabitsData
 class MainActivity : AppCompatActivity(){
     //private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var mainViewModel: MainViewModel
+    lateinit var habitsData : HabitsData
 
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,24 +58,12 @@ class MainActivity : AppCompatActivity(){
         // Make sure this is before calling super.onCreate
         //setTheme(R.style.Theme_MyApp);
         super.onCreate(savedInstanceState)
-        //Setting up DB for survey
+        habitsData= HabitsData()
+        habitsData.readJson(assets.open("habits.json"))
 
-        var habitsData= HabitsData()
-        Log.d("Text", habitsData.country)
+
         //TODO Add if statement db is full already
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-
-        mainViewModel.allUsers.observe(this, Observer <List<User>>{
-            @Override
-            fun onChanged(@Nullable users:List<User> ){
-                Log.d("Users",users.toString())
-            }
-
-
-            Log.d("Users", mainViewModel.allUsers.value.toString())
-        })
-
-
 
 
         val initIntent = Intent(this, Roadmap::class.java)
@@ -82,39 +71,6 @@ class MainActivity : AppCompatActivity(){
         val serviceIntent= Intent(this, LocationService::class.java)
         startService(serviceIntent)
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 2)
-
-//             @Override
-//             fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-//                 Log.d("MainActivity", "ENTERED")
-//
-//                 when (requestCode) {
-//                        2 -> {
-//                            Log.d("MainActivity", "TWO")
-//
-//                            // If request is cancelled, the result arrays are empty.
-//                            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-//                                // permission was granted, yay! Do the
-//                                // contacts-related task you need to do.
-//
-//                                        if (fusedLocationClient.lastLocation == null){
-//                                            Log.d("MainActivity", "NULL")
-//                                        }
-//
-//                            } else {
-//                                // permission denied, boo! Disable the
-//                                // functionality that depends on this permission.
-//                            }
-//                            return
-//                        }
-//
-//                        // Add other 'when' lines to check for other
-//                        // permissions this app might request.
-//                        else -> {
-//                            // Ignore all other requests.
-//                        }
-//                    }
-//                }
-
 
             setContentView(berlin.code.smartme.smartme.R.layout.activity_main)
             if (supportActionBar != null) {
