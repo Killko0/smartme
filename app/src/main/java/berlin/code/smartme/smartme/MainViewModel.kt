@@ -5,6 +5,7 @@ import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
 import android.os.AsyncTask
 import android.util.Log
+import androidx.work.WorkManager
 import berlin.code.smartme.smartme.data.HabitsData
 import berlin.code.smartme.smartme.data.User
 import berlin.code.smartme.smartme.data.UserDatabase
@@ -27,8 +28,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
 
 
      init {
+         WorkManager.getInstance().enqueue(repeatingHabitNotificationRequest)
 
-    }
+     }
 
     override fun onCleared() {
         super.onCleared()

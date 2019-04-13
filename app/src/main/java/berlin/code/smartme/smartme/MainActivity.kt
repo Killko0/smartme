@@ -9,6 +9,7 @@ import android.view.View
 import android.graphics.Color.parseColor
 import android.R
 import android.annotation.SuppressLint
+import android.app.AlarmManager
 import android.app.Notification.EXTRA_NOTIFICATION_ID
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -17,6 +18,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.arch.persistence.room.Entity
 import android.content.BroadcastReceiver
+import android.content.ComponentName
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -29,14 +31,18 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.ImageView.ScaleType
 import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.location.Location
+import android.media.RingtoneManager
 import android.os.Build
+import android.os.SystemClock
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.ContextCompat.getSystemService
 import android.support.v4.content.ContextCompat.startActivity
+import android.support.v4.content.WakefulBroadcastReceiver
 import android.widget.ImageView
 import android.widget.Toast
 import berlin.code.smartme.smartme.data.User
@@ -46,6 +52,7 @@ import com.google.android.gms.location.LocationServices
 import berlin.code.smartme.smartme.data.UserDatabase
 import org.jetbrains.annotations.Nullable
 import berlin.code.smartme.smartme.data.HabitsData
+import java.util.*
 
 class MainActivity : AppCompatActivity(){
     //private lateinit var viewAdapter: RecyclerView.Adapter<*>
@@ -142,25 +149,19 @@ class MainActivity : AppCompatActivity(){
 
             val TAG = "MyBroadcastReceiver"
 
-            class MyBroadcastReceiver : BroadcastReceiver() {
 
-                override fun onReceive(context: Context, intent: Intent) {
-                    StringBuilder().apply {
-                        append("Action: ${intent.action}\n")
-                        append("URI: ${intent.toUri(Intent.URI_INTENT_SCHEME)}\n")
-                        toString().also { log ->
-                            Log.d(TAG, log)
-                            Toast.makeText(context, log, Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            }
 
             //Settings up notifications
             val snoozeIntent = Intent(this, MyBroadcastReceiver::class.java).apply {
                 //action = ACTION_SNOOZE
+                Log.d("SnoozeIntent","Snooze intent fired!")
                 putExtra(EXTRA_NOTIFICATION_ID, 0)
             }
+            val notificationIntent = Intent(this, MyBroadcastReceiver::class.java).apply {
+                Log.d("SnoozeIntent","Notification intent fired!")
+            }
+            val pendingNotificationIntent: PendingIntent = PendingIntent.getBroadcast(this, 1,notificationIntent,0)
+
             val snoozePendingIntent: PendingIntent =
                 PendingIntent.getBroadcast(this, 0, snoozeIntent, 0)
 
@@ -193,14 +194,14 @@ class MainActivity : AppCompatActivity(){
                 }
             }
 
-
+            var notficationTimeInMillis = SystemClock.elapsedRealtime() + 50000
+            Log.d("snooze",notficationTimeInMillis.toString())
+            val alarmManager = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager //Not sure if i have to add context. before getSystemServie
+            alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, notficationTimeInMillis,pendingNotificationIntent)
             with(NotificationManagerCompat.from(this)) {
                 // notificationId is a unique int for each notification that you must define
                 notify(12, builder.build())
             }
-
-
-
 
     }
     fun goMethodsOverview(view: View){
