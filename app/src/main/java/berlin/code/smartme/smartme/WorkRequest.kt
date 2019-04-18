@@ -10,6 +10,6 @@ val onetimeHabitNotificationRequest = OneTimeWorkRequestBuilder<NotifyWorker>()
     .build()
 
 val repeatingHabitNotificationRequest =
-    PeriodicWorkRequestBuilder<NotifyWorker>(16, TimeUnit.MINUTES)
+    PeriodicWorkRequestBuilder<NotifyWorker>(1, TimeUnit.HOURS)
         .build()
 

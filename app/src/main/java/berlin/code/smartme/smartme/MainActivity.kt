@@ -4,60 +4,19 @@ import android.Manifest
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.graphics.Color.parseColor
 import android.R
-import android.annotation.SuppressLint
-import android.app.AlarmManager
-import android.app.Notification.EXTRA_NOTIFICATION_ID
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.arch.persistence.room.Entity
-import android.content.BroadcastReceiver
-import android.content.ComponentName
-import android.content.Context
-import android.content.pm.PackageManager
 import android.graphics.Color
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.widget.ArrayAdapter
-import android.widget.ListAdapter
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.ImageView.ScaleType
-import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
-import android.location.Location
-import android.media.RingtoneManager
-import android.os.Build
-import android.os.SystemClock
 import android.support.v4.app.ActivityCompat
-import android.support.v4.app.NotificationCompat
-import android.support.v4.app.NotificationManagerCompat
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.ContextCompat.getSystemService
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v4.content.WakefulBroadcastReceiver
 import android.widget.ImageView
-import android.widget.Toast
-import berlin.code.smartme.smartme.data.User
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import berlin.code.smartme.smartme.data.UserDatabase
-import org.jetbrains.annotations.Nullable
 import berlin.code.smartme.smartme.data.HabitsData
-import java.util.*
 
 class MainActivity : AppCompatActivity(){
-    //private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var mainViewModel: MainViewModel
-    lateinit var habitsData : HabitsData
+    private lateinit var habitsData : HabitsData
 
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,11 +26,6 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         habitsData= HabitsData()
         habitsData.readJson(assets.open("habits.json"))
-
-
-        //TODO Add if statement db is full already
-        mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-
 
         val initIntent = Intent(this, Roadmap::class.java)
         startActivity(initIntent)
@@ -145,62 +99,6 @@ class MainActivity : AppCompatActivity(){
 
                 imageView.scaleType = ScaleType.FIT_CENTER
                 linear.addView(imageView)
-            }
-
-            val TAG = "MyBroadcastReceiver"
-
-
-
-            //Settings up notifications
-            val snoozeIntent = Intent(this, MyBroadcastReceiver::class.java).apply {
-                //action = ACTION_SNOOZE
-                Log.d("SnoozeIntent","Snooze intent fired!")
-                putExtra(EXTRA_NOTIFICATION_ID, 0)
-            }
-            val notificationIntent = Intent(this, MyBroadcastReceiver::class.java).apply {
-                Log.d("SnoozeIntent","Notification intent fired!")
-            }
-            val pendingNotificationIntent: PendingIntent = PendingIntent.getBroadcast(this, 1,notificationIntent,0)
-
-            val snoozePendingIntent: PendingIntent =
-                PendingIntent.getBroadcast(this, 0, snoozeIntent, 0)
-
-            val CHANNEL_ID = "ID01"
-            var builder = NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_delete)
-                .setContentTitle("Marcou")
-                .setContentText("You just clicked on an element!")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .addAction(
-                    R.drawable.ic_input_add, "DONE",
-                    snoozePendingIntent
-                )
-
-
-            fun createNotificationChannel() {
-                // Create the NotificationChannel, but only on API 26+ because
-                // the NotificationChannel class is new and not in the support library
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    val name = "Hello hellooooooooo"
-                    val descriptionText = "Hello helloooooooo"
-                    val importance = NotificationManager.IMPORTANCE_DEFAULT
-                    val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-                        description = descriptionText
-                    }
-                    // Register the channel with the system
-                    val notificationManager: NotificationManager =
-                        getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                    notificationManager.createNotificationChannel(channel)
-                }
-            }
-
-            var notficationTimeInMillis = SystemClock.elapsedRealtime() + 50000
-            Log.d("snooze",notficationTimeInMillis.toString())
-            val alarmManager = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager //Not sure if i have to add context. before getSystemServie
-            alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, notficationTimeInMillis,pendingNotificationIntent)
-            with(NotificationManagerCompat.from(this)) {
-                // notificationId is a unique int for each notification that you must define
-                notify(12, builder.build())
             }
 
     }
