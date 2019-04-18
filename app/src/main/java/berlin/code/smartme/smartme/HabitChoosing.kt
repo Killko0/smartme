@@ -27,7 +27,7 @@ class HabitChoosing : Fragment() {
 
         val view = inflater.inflate(R.layout.habit_choosing_fragment, container, false)
         val btn:Button? = view?.findViewById(R.id.button7)
-        btn?.setOnClickListener{v:View -> onAccept(v)}
+        btn?.setOnClickListener{v:View -> viewModel.onAccept(v,thisScope)}
         return view
     }
 
@@ -40,11 +40,7 @@ class HabitChoosing : Fragment() {
 
     }
      private fun onAccept(view:View?){
-        viewModel.count++
-        if (viewModel.count == 3) {
-            fragmentManager?.beginTransaction()?.remove(thisScope)?.commit()
-            Log.d("HabitChoosing","Fragment killed")
-        }
+
     }
 
 }

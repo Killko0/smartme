@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="300dp"
         android:layout_height="500dp"
-        tools:context=".HabitChoosing">
+        tools:context=".HabitChoosing" android:background="@color/white">
 
     <TextView
             android:id="@+id/text_fragment"
