@@ -12,8 +12,10 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.ImageView.ScaleType
 import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat.startActivity
 import android.widget.ImageView
 import berlin.code.smartme.smartme.data.HabitsData
+import kotlinx.android.synthetic.main.fragment_bottom_navigation.*
 
 class MainActivity : AppCompatActivity(){
     private lateinit var habitsData : HabitsData
@@ -38,8 +40,8 @@ class MainActivity : AppCompatActivity(){
                 supportActionBar!!.hide()
             }
             //Setting up the bottom navbar
-            bottom_navigation.titleState = AHBottomNavigation.TitleState.ALWAYS_HIDE
-            bottom_navigation.accentColor = Color.parseColor("#2D9187");
+            //bottom_navigation.titleState = AHBottomNavigation.TitleState.ALWAYS_SHOW
+            //bottom_navigation.accentColor = Color.parseColor("#2D9187");
 
             val homeItem = AHBottomNavigationItem(
                 "",
@@ -61,19 +63,19 @@ class MainActivity : AppCompatActivity(){
                 "Home",
                 berlin.code.smartme.smartme.R.drawable.lightbulb
             )
-            bottom_navigation.setOnTabSelectedListener(AHBottomNavigation.OnTabSelectedListener { position, wasSelected ->
+            //bottom_navigation.setOnTabSelectedListener(AHBottomNavigation.OnTabSelectedListener { position, wasSelected ->
                 // Do something cool here...
                 //Log.d("MainActivity1", position?.toString())
                 true
-            })
-            bottom_navigation.setOnNavigationPositionListener(AHBottomNavigation.OnNavigationPositionListener {
-                // Manage the new y position
-            })
-            bottom_navigation.addItem(homeItem)
-            bottom_navigation.addItem(lightbulbItem)
-            bottom_navigation.addItem(historyItem)
-            bottom_navigation.addItem(dataItem)
-            bottom_navigation.addItem(settingsItem)
+//            })
+//            bottom_navigation.setOnNavigationPositionListener(AHBottomNavigation.OnNavigationPositionListener {
+//                // Manage the new y position
+//            })
+//            bottom_navigation.addItem(homeItem)
+//            bottom_navigation.addItem(lightbulbItem)
+//            bottom_navigation.addItem(historyItem)
+//            bottom_navigation.addItem(dataItem)
+//            bottom_navigation.addItem(settingsItem)
 
 
             //Populating the horizontal list

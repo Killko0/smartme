@@ -54,7 +54,6 @@ dependencies {
     implementation "android.arch.work:work-runtime-ktx:1.0.1"
 
 
-
 }
 kotlin {
     experimental {

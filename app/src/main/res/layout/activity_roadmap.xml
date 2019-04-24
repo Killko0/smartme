@@ -18,16 +18,15 @@
                 android:adjustViewBounds="true"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                />
+        />
         <ImageView
-                android:layout_width="419dp"
+                android:layout_width="416dp"
                 android:layout_height="wrap_content" app:srcCompat="@drawable/roadmap_1" android:id="@+id/imageView5"
                 android:scaleType="fitStart"
                 android:adjustViewBounds="true"
                 app:layout_constraintTop_toBottomOf="@id/imageView4"
 
-                tools:layout_editor_absoluteY="0dp" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
@@ -38,5 +37,6 @@
                 app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="168dp"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="183dp"/>
+
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
