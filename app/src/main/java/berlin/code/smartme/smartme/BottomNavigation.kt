@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,43 +41,7 @@ class BottomNavigation : Fragment() {
 //            param1 = it.getString(ARG_PARAM1)
 //            param2 = it.getString(ARG_PARAM2)
 //        }
-        //Setting up the bottom navbar
-        //bottom_navigation.titleState = AHBottomNavigation.TitleState.ALWAYS_SHOW
-        //bottom_navigation.accentColor = Color.parseColor("#2D9187");
 
-        val homeItem = AHBottomNavigationItem(
-            "",
-            R.drawable.home2
-        )
-        val dataItem = AHBottomNavigationItem(
-            "",
-            R.drawable.data2
-        )
-        val historyItem = AHBottomNavigationItem(
-            "Home",
-            R.drawable.history
-        )
-        val settingsItem = AHBottomNavigationItem(
-            "Home",
-            R.drawable.settings
-        )
-        val lightbulbItem = AHBottomNavigationItem(
-            "Home",
-            R.drawable.lightbulb
-        )
-//        bottom_navigation.setOnTabSelectedListener(AHBottomNavigation.OnTabSelectedListener { position, wasSelected ->
-//            // Do something cool here...
-//            //Log.d("MainActivity1", position?.toString())
-//            true
-//        })
-//        bottom_navigation.setOnNavigationPositionListener(AHBottomNavigation.OnNavigationPositionListener {
-//            // Manage the new y position
-//        })
-//        bottom_navigation.addItem(homeItem)
-//        bottom_navigation.addItem(lightbulbItem)
-//        bottom_navigation.addItem(historyItem)
-//        bottom_navigation.addItem(dataItem)
-//        bottom_navigation.addItem(settingsItem)
     }
 
     override fun onCreateView(
@@ -104,6 +69,47 @@ class BottomNavigation : Fragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //Setting up the bottom navbar
+        bottom_navigation?.titleState = AHBottomNavigation.TitleState.ALWAYS_SHOW
+        bottom_navigation?.accentColor = Color.parseColor("#2D9187")
+
+        val homeItem = AHBottomNavigationItem(
+            "",
+            R.drawable.home2
+        )
+        val dataItem = AHBottomNavigationItem(
+            "",
+            R.drawable.data2
+        )
+        val historyItem = AHBottomNavigationItem(
+            "Home",
+            R.drawable.history
+        )
+        val settingsItem = AHBottomNavigationItem(
+            "Home",
+            R.drawable.settings
+        )
+        val lightbulbItem = AHBottomNavigationItem(
+            "Home",
+            R.drawable.lightbulb
+        )
+        bottom_navigation.setOnTabSelectedListener(AHBottomNavigation.OnTabSelectedListener { position, wasSelected ->
+            // Do something cool here...
+            //Log.d("MainActivity1", position?.toString())
+            true
+        })
+        bottom_navigation.setOnNavigationPositionListener(AHBottomNavigation.OnNavigationPositionListener {
+            // Manage the new y position
+        })
+        bottom_navigation.addItem(homeItem)
+        bottom_navigation.addItem(lightbulbItem)
+        bottom_navigation.addItem(historyItem)
+        bottom_navigation.addItem(dataItem)
+        bottom_navigation.addItem(settingsItem)
     }
 
     /**

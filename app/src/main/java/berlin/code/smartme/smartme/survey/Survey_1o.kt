@@ -6,18 +6,17 @@ import android.os.Bundle
 import android.view.View
 import berlin.code.smartme.smartme.R
 
-class StartSurvery : AppCompatActivity() {
+class Survey_1o : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (supportActionBar != null) {
-            supportActionBar!!.hide()
+            supportActionBar!!.hide();
         }
-
-        setContentView(R.layout.activity_start_survery)
+        setContentView(R.layout.activity_survey_1)
     }
-    fun startSurvey(view: View){
-        val surveyIntent = Intent(this, Survey_1o::class.java)
+    fun nextStep(view: View){
+        val surveyIntent = Intent(this, Survey_2::class.java)
         startActivity(surveyIntent)
     }
 }

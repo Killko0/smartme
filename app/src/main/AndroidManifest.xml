@@ -33,7 +33,7 @@
         </activity>
         <activity android:name=".survey.Survey_2">
         </activity>
-        <activity android:name=".survey.Survey_1">
+        <activity android:name=".survey.Survey_1o">
         </activity>
         <activity android:name=".survey.StartSurvery">
         </activity>

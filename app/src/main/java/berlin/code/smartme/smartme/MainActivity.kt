@@ -18,16 +18,13 @@ import berlin.code.smartme.smartme.data.HabitsData
 import kotlinx.android.synthetic.main.fragment_bottom_navigation.*
 
 class MainActivity : AppCompatActivity(){
-    private lateinit var habitsData : HabitsData
-
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
 
         // Make sure this is before calling super.onCreate
         //setTheme(R.style.Theme_MyApp);
         super.onCreate(savedInstanceState)
-        habitsData= HabitsData()
-        habitsData.readJson(assets.open("habits.json"))
+
 
         val initIntent = Intent(this, Roadmap::class.java)
         startActivity(initIntent)

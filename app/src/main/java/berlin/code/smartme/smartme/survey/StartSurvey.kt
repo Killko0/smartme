@@ -4,11 +4,16 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import berlin.code.smartme.smartme.HabitChoosing
 
 import berlin.code.smartme.smartme.R
+import berlin.code.smartme.smartme.Roadmap
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,16 +23,18 @@ private const val ARG_PARAM2 = "param2"
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [Survey_1.OnFragmentInteractionListener] interface
+ * [StartSurvey.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [Survey_1.newInstance] factory method to
+ * Use the [StartSurvey.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class Survey_1 : Fragment() {
+class StartSurvey : Fragment(),Survey_1.OnFragmentInteractionListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var fragMan:FragmentManager
+
     private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,19 +43,31 @@ class Survey_1 : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
+    override fun onFragmentInteraction(uri: Uri) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_survey_1, container, false)
+        return inflater.inflate(R.layout.fragment_start_survey, container, false)
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
+    }
+    fun onStartPressed(view: View){
+        val fragment = Survey_1()
+        val fragMan =
+
+        //fragMan.beginTransaction().add(R.id.habitChoosingLayout,fragment,"fragment").commit()
+        fragMan.beginTransaction().remove(this).commit()
+
     }
 
     override fun onAttach(context: Context) {
@@ -88,12 +107,12 @@ class Survey_1 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Survey_1.
+         * @return A new instance of fragment StartSurvey.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Survey_1().apply {
+            StartSurvey().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
