@@ -9,6 +9,7 @@ import android.os.SystemClock
 import android.support.annotation.NonNull
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
+import android.support.v4.content.ContextCompat
 import android.support.v4.content.ContextCompat.getSystemService
 import android.util.Log
 import androidx.work.Worker
@@ -34,10 +35,12 @@ class NotifyWorker(@NonNull val context: Context, @NonNull params: WorkerParamet
             PendingIntent.getBroadcast(context, 0, snoozeIntent, 0)
 
         val CHANNEL_ID = "ID01"
+
         var builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_delete)
+            .setSmallIcon(berlin.code.smartme.smartme.R.drawable.ic_notification)
             .setContentTitle("Marcou")
-            .setContentText("You just clicked on an element!")
+            .setContentText("Defrost freezer today!")
+            .setColor(ContextCompat.getColor(context,berlin.code.smartme.smartme.R.color.pink_ic))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .addAction(
                 R.drawable.ic_input_add, "DONE",

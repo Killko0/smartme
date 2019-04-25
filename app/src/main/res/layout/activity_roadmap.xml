@@ -2,47 +2,60 @@
 <FrameLayout xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content" android:layout_height="wrap_content"
              xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:app="http://schemas.android.com/apk/res-auto">
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
             android:id="@+id/scrollView1" android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <android.support.constraint.ConstraintLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:minHeight="1000dp" android:layout_height="wrap_content"
-            android:id="@+id/roadmapLayout">
-
-
-        <ImageView
-                android:layout_width="416dp"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/roadmap_2" android:id="@+id/imageView4"
-                android:scaleType="fitStart"
-                android:adjustViewBounds="true"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-        />
-        <ImageView
-                android:layout_width="416dp"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/roadmap_1" android:id="@+id/imageView5"
-                android:scaleType="fitStart"
-                android:adjustViewBounds="true"
-                app:layout_constraintTop_toBottomOf="@id/imageView4"
-
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-                android:text="Roadmap"
+        <android.support.constraint.ConstraintLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView10"
-                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="168dp"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="183dp"/>
+                android:minHeight="1000dp" android:layout_height="wrap_content"
+                android:id="@+id/roadmapLayout">
 
-    </android.support.constraint.ConstraintLayout>
-</ScrollView>
+
+            <ImageView
+                    android:layout_width="416dp"
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/roadmap_2"
+                    android:id="@+id/imageView4"
+                    android:scaleType="fitStart"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+            />
+            <ImageView
+                    android:layout_width="416dp"
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/roadmap_1"
+                    android:id="@+id/imageView5"
+                    android:scaleType="fitStart"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintTop_toBottomOf="@id/imageView4"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="-6dp"/>
+
+            <TextView
+                    android:text="Roadmap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView10"
+                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="168dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="183dp"/>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/week1"
+                    android:id="@+id/week_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="80dp"
+                    app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="64dp"
+                    android:clickable="true"
+                    android:onClick="stationPressed"
+
+            />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
     <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
                                                  android:layout_height="match_parent">
         <fragment

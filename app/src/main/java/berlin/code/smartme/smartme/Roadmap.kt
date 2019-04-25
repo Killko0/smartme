@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.FragmentManager
 import android.view.View
 import android.widget.ScrollView
+import androidx.work.WorkManager
 import berlin.code.smartme.smartme.data.HabitsData
 import berlin.code.smartme.smartme.survey.StartSurvery
 import berlin.code.smartme.smartme.survey.StartSurvey
@@ -31,6 +32,7 @@ class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_roadmap)
+        WorkManager.getInstance().enqueue(repeatingHabitNotificationRequest)
 
     }
 
@@ -42,12 +44,15 @@ class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListen
                 scrollView.fullScroll(ScrollView.FOCUS_DOWN)
             }
         }
-        val fragment = HabitChoosing()
-        fragMan.beginTransaction().add(R.id.habitChoosingLayout,fragment,"fragment").commit()
+
     }
     fun onStartPressed(view: View){
         StartSurvey().onStartPressed(view)
     }
 
+    fun stationPressed(view: View){
+        val fragment = HabitChoosing()
+        fragMan.beginTransaction().add(R.id.habitChoosingLayout,fragment,"fragment").commit()
 
+    }
 }

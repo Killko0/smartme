@@ -16,13 +16,6 @@ class HabitChoosingViewModel : ViewModel() {
     //val description = habit["description"].toString()
 
     fun onAccept(view: View, fragment:Fragment){
-        count++
-        if (count == 3) {
-            fragment.fragmentManager?.beginTransaction()?.remove(fragment)?.commit()
-            Log.d("HabitChoosing","Fragment killed")
-
-        }
-
 
     }
 

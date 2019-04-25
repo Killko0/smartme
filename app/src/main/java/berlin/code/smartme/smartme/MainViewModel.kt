@@ -28,7 +28,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
 
 
      init {
-         WorkManager.getInstance().enqueue(repeatingHabitNotificationRequest)
+
+         Log.d("NOTIFICATION","Enqueued!")
 
      }
 
