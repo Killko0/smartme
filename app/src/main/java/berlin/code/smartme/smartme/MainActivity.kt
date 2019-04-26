@@ -33,33 +33,12 @@ class MainActivity : AppCompatActivity(){
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 2)
 
             setContentView(berlin.code.smartme.smartme.R.layout.activity_main)
-            if (supportActionBar != null) {
-                supportActionBar!!.hide()
-            }
+
             //Setting up the bottom navbar
             //bottom_navigation.titleState = AHBottomNavigation.TitleState.ALWAYS_SHOW
             //bottom_navigation.accentColor = Color.parseColor("#2D9187");
 
-            val homeItem = AHBottomNavigationItem(
-                "",
-                berlin.code.smartme.smartme.R.drawable.home2
-            )
-            val dataItem = AHBottomNavigationItem(
-                "",
-                berlin.code.smartme.smartme.R.drawable.data2
-            )
-            val historyItem = AHBottomNavigationItem(
-                "Home",
-                berlin.code.smartme.smartme.R.drawable.history
-            )
-            val settingsItem = AHBottomNavigationItem(
-                "Home",
-                berlin.code.smartme.smartme.R.drawable.settings
-            )
-            val lightbulbItem = AHBottomNavigationItem(
-                "Home",
-                berlin.code.smartme.smartme.R.drawable.lightbulb
-            )
+
             //bottom_navigation.setOnTabSelectedListener(AHBottomNavigation.OnTabSelectedListener { position, wasSelected ->
                 // Do something cool here...
                 //Log.d("MainActivity1", position?.toString())

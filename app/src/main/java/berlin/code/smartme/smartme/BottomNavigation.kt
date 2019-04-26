@@ -1,11 +1,13 @@
 package berlin.code.smartme.smartme
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,10 +61,15 @@ class BottomNavigation : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        Log.d("Bottom",activity?.localClassName.toString())
+        when(activity?.localClassName){
+            //"MethodsOverview"-> bottom_navigation.currentItem = 1
+            //"Roadmap"-> bottom_navigation.currentItem = 0
+        }
         if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnFragmentInteractionListener")
         }
     }
 
@@ -75,40 +82,40 @@ class BottomNavigation : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Setting up the bottom navbar
         bottom_navigation?.titleState = AHBottomNavigation.TitleState.ALWAYS_SHOW
-        bottom_navigation?.accentColor = Color.parseColor("#2D9187")
+        bottom_navigation?.accentColor = Color.parseColor("#0D65C1")
 
-        val homeItem = AHBottomNavigationItem(
-            "",
-            R.drawable.home2
+        val roadmapItem = AHBottomNavigationItem(
+            "Roadmap",
+            R.drawable.ic_roadmap
         )
-        val dataItem = AHBottomNavigationItem(
-            "",
-            R.drawable.data2
+        val tasksItem = AHBottomNavigationItem(
+            "Tasks",
+            R.drawable.ic_tasks
         )
-        val historyItem = AHBottomNavigationItem(
-            "Home",
-            R.drawable.history
+        val billItem = AHBottomNavigationItem(
+            "Bill Overview",
+            R.drawable.ic_billing
         )
         val settingsItem = AHBottomNavigationItem(
-            "Home",
-            R.drawable.settings
+            "Settings",
+            R.drawable.ic_settings
         )
-        val lightbulbItem = AHBottomNavigationItem(
-            "Home",
-            R.drawable.lightbulb
-        )
+
         bottom_navigation.setOnTabSelectedListener(AHBottomNavigation.OnTabSelectedListener { position, wasSelected ->
-            // Do something cool here...
-            //Log.d("MainActivity1", position?.toString())
+            Log.d("Bottombar", position.toString())
+            var initIntent=Intent(context, Roadmap::class.java)
+            when(position){
+                1-> initIntent= Intent(context, MethodsOverview::class.java)
+            }
+            startActivity(initIntent)
             true
         })
         bottom_navigation.setOnNavigationPositionListener(AHBottomNavigation.OnNavigationPositionListener {
             // Manage the new y position
         })
-        bottom_navigation.addItem(homeItem)
-        bottom_navigation.addItem(lightbulbItem)
-        bottom_navigation.addItem(historyItem)
-        bottom_navigation.addItem(dataItem)
+        bottom_navigation.addItem(roadmapItem)
+        bottom_navigation.addItem(tasksItem)
+        bottom_navigation.addItem(billItem)
         bottom_navigation.addItem(settingsItem)
     }
 

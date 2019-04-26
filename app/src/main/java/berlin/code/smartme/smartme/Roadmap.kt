@@ -1,10 +1,16 @@
 package berlin.code.smartme.smartme
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.FragmentManager
+import android.util.AttributeSet
 import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.ScrollView
 import androidx.work.WorkManager
 import berlin.code.smartme.smartme.data.HabitsData
@@ -17,7 +23,7 @@ import org.json.JSONArray
 class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListener,StartSurvey.OnFragmentInteractionListener{
     val fragMan = supportFragmentManager
     private lateinit var habitsData : HabitsData
-
+    private lateinit var sharedPref: SharedPreferences
     override fun onFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -32,7 +38,12 @@ class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_roadmap)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
         WorkManager.getInstance().enqueue(repeatingHabitNotificationRequest)
+        sharedPref = this.getSharedPreferences("habits",Context.MODE_PRIVATE)
+
 
     }
 
@@ -44,6 +55,12 @@ class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListen
                 scrollView.fullScroll(ScrollView.FOCUS_DOWN)
             }
         }
+        val btnWeek1: ImageView? = this.findViewById(R.id.week_1)
+        val chosenHabits = sharedPref.all
+        if(chosenHabits.count()<3){
+            btnWeek1?.setOnClickListener{v:View -> stationPressed(v)}
+        }
+
 
     }
     fun onStartPressed(view: View){
