@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="500dp"
+>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="320dp"
+            android:layout_height="0dp" android:background="@drawable/border"
+            android:layout_gravity="center" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.494" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+                android:text="HabitTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/habit_title" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="28dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.213"
+                android:textSize="30sp"/>
+        <ImageView
+                android:layout_width="100dp"
+                android:layout_height="150dp" app:srcCompat="@drawable/marcou_standing"
+                android:id="@+id/habit_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="40dp" app:layout_constraintTop_toBottomOf="@+id/habit_description"
+        />
+        <TextView
+                android:text="Habit descirption Habit descirption Habit descirption Habit descirption Habit descirption Habit descirption "
+                android:layout_width="226dp"
+                android:layout_height="134dp"
+                android:id="@+id/habit_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.297"
+                app:layout_constraintTop_toBottomOf="@+id/habit_title"
+                android:textSize="18sp" android:layout_marginTop="32dp"/>
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

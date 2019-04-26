@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "546164143203",
+    "firebase_url": "https://marcou-5f5bc.firebaseio.com",
+    "project_id": "marcou-5f5bc",
+    "storage_bucket": "marcou-5f5bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546164143203:android:6bf0887cacad812c",
+        "android_client_info": {
+          "package_name": "berlin.code.smartme.smartme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546164143203-i6hd1unce6iivm7arok9j4taufnjf6e6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "berlin.code.smartme.smartme",
+            "certificate_hash": "bc0479241e7f1e68b4c5beb67a1b34e4f5616e17"
+          }
+        },
+        {
+          "client_id": "546164143203-q9pgbcq0b6kmqef9i6gn59j38g0ak3jt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB187ouRpqgAs5dhJdL3aexARHjL-oUMU8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546164143203-q9pgbcq0b6kmqef9i6gn59j38g0ak3jt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
