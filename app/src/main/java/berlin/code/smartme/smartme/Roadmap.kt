@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_roadmap.*
 import kotlinx.android.synthetic.main.fragment_start_survey.*
 import org.json.JSONArray
 
-class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListener,StartSurvey.OnFragmentInteractionListener{
+class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListener,StartSurvey.OnFragmentInteractionListener,ActiveHabits.OnFragmentInteractionListener{
     val fragMan = supportFragmentManager
     private lateinit var habitsData : HabitsData
     private lateinit var sharedPref: SharedPreferences

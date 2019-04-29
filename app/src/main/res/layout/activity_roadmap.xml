@@ -69,7 +69,7 @@
                     android:layout_marginEnd="100dp"
                     app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="92dp"
                     android:clickable="true"
-                    android:scaleType="center"/>
+                    android:scaleType="center" android:focusable="true"/>
             <ImageView
                     android:layout_width="48dp"
                     android:layout_height="46dp" app:srcCompat="@drawable/marcou_standing"
@@ -107,11 +107,16 @@
     <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
                                                  android:layout_height="match_parent">
         <fragment
-                android:layout_width="360dp"
+                android:layout_width="0dp"
                 android:layout_height="56dp" android:name="berlin.code.smartme.smartme.BottomNavigation"
                 android:id="@+id/fragment2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+        />
+        <fragment
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:name="berlin.code.smartme.smartme.ActiveHabits"
+                android:id="@+id/fragment" tools:layout_editor_absoluteY="115dp" tools:layout_editor_absoluteX="54dp"/>
         <FrameLayout android:layout_width="240dp" android:layout_height="300dp"
                      android:id="@+id/habitChoosingLayout"
                      app:layout_constraintEnd_toEndOf="parent"

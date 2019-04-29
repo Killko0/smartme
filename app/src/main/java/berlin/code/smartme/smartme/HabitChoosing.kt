@@ -20,7 +20,6 @@ class HabitChoosing : Fragment() {
     var habits= JSONArray()
     var count = 0
     var habitId =0
-    lateinit var  btnWeek1: ImageView
     private lateinit var sharedPref:SharedPreferences
     companion object {
         fun newInstance() = HabitChoosing()
@@ -28,6 +27,7 @@ class HabitChoosing : Fragment() {
     private val thisScope = this
     private lateinit var viewModel: HabitChoosingViewModel
     private lateinit var habitsData : HabitsData
+    private val btnWeek1: ImageView? = view?.findViewById(R.id.week_1)
 
 
     override fun onCreateView(
@@ -37,7 +37,7 @@ class HabitChoosing : Fragment() {
         val view = inflater.inflate(R.layout.habit_choosing_fragment, container, false)
         val btnAccept:Button? = view?.findViewById(R.id.button7)
         val btnDeny:Button?= view?.findViewById(R.id.button6)
-        val btnWeek1: ImageView = view.findViewById(R.id.week_1)
+
         btnDeny?.setOnClickListener{v:View -> onAccept(v,thisScope, false)}
         btnAccept?.setOnClickListener{v:View -> onAccept(v,thisScope,true)}
         return view
@@ -65,7 +65,7 @@ class HabitChoosing : Fragment() {
     private fun onAccept(view:View, fragment:Fragment, accept:Boolean){
         if (count >= 3) {
             fragment.fragmentManager?.beginTransaction()?.remove(fragment)?.commit()
-            btnWeek1.setOnClickListener(null)
+            btnWeek1?.setOnClickListener(null)
         }
         if (accept){
             with (sharedPref.edit()) {
