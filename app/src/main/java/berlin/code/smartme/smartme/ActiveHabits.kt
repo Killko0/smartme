@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import berlin.code.smartme.smartme.data.HabitsData
+import kotlinx.android.synthetic.main.fragment_active_habits.*
 import org.json.JSONArray
 
 
@@ -53,6 +54,10 @@ class ActiveHabits : Fragment() {
         return inflater.inflate(R.layout.fragment_active_habits, container, false)
     }
 
+    override fun onStart() {
+        super.onStart()
+        updateHabits()
+    }
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
@@ -63,17 +68,30 @@ class ActiveHabits : Fragment() {
         if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnFragmentInteractionListener")
         }
         habitsData= HabitsData()
         habits = habitsData.readJson(context.assets.open("habits.json"))
         sharedPref = context.getSharedPreferences("habits",Context.MODE_PRIVATE)
-        Log.d("ActiveHabits", sharedPref.toString())
+
     }
 
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+    fun updateHabits(){
+        val chosenHabits = sharedPref.all
+        if(chosenHabits.count()!=0){
+            var habitTitles= mutableListOf<String>()
+            for (i in 0 until 3){
+                val habit = habits.getJSONObject(sharedPref.getInt("habitId$i",0))
+                habitTitles.add(habit["title"].toString())
+            }
+            habit_1?.text = habitTitles[0]
+            habit_2?.text = habitTitles[1]
+            habit_3?.text = habitTitles[2]
+        }
     }
 
     /**

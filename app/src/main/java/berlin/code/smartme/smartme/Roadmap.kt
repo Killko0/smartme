@@ -59,6 +59,10 @@ class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListen
         val chosenHabits = sharedPref.all
         if(chosenHabits.count()<3){
             btnWeek1?.setOnClickListener{v:View -> stationPressed(v)}
+
+        }
+        else{
+            fragMan?.beginTransaction()?.add(R.id.active_habits_layout,ActiveHabits(),"activeHabits_1")?.commit()
         }
 
 
@@ -68,8 +72,7 @@ class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListen
     }
 
     fun stationPressed(view: View){
-        val fragment = HabitChoosing()
-        fragMan.beginTransaction().add(R.id.habitChoosingLayout,fragment,"fragment").commit()
+        fragMan.beginTransaction().add(R.id.habitChoosingLayout,HabitChoosing(),"fragment").commit()
 
     }
 }

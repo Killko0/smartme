@@ -65,6 +65,7 @@ class HabitChoosing : Fragment() {
     private fun onAccept(view:View, fragment:Fragment, accept:Boolean){
         if (count >= 3) {
             fragment.fragmentManager?.beginTransaction()?.remove(fragment)?.commit()
+            fragmentManager?.beginTransaction()?.add(R.id.active_habits_layout,ActiveHabits(),"activeHabits_2")?.commit()
             btnWeek1?.setOnClickListener(null)
         }
         if (accept){

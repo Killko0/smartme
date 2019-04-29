@@ -62,10 +62,7 @@ class BottomNavigation : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("Bottom",activity?.localClassName.toString())
-        when(activity?.localClassName){
-            //"MethodsOverview"-> bottom_navigation.currentItem = 1
-            //"Roadmap"-> bottom_navigation.currentItem = 0
-        }
+
         if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
@@ -117,6 +114,10 @@ class BottomNavigation : Fragment() {
         bottom_navigation.addItem(tasksItem)
         bottom_navigation.addItem(billItem)
         bottom_navigation.addItem(settingsItem)
+//        when(activity?.localClassName){
+//            "MethodsOverview"-> bottom_navigation.currentItem = 1
+//            "Roadmap"-> bottom_navigation.currentItem = 0
+//        }
     }
 
     /**
