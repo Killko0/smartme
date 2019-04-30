@@ -39,7 +39,7 @@ class NotifyWorker(@NonNull val context: Context, @NonNull params: WorkerParamet
         var builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(berlin.code.smartme.smartme.R.drawable.ic_notification)
             .setContentTitle("Marcou")
-            .setContentText("Defrost freezer today!")
+            .setContentText("Have you done your habits today?")
             .setColor(ContextCompat.getColor(context,berlin.code.smartme.smartme.R.color.pink_ic))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .addAction(

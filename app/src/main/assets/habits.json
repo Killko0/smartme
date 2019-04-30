@@ -1,8 +1,8 @@
 {
    "habits":
    [
-     {"Id":1,"title":"Cover your pots","description":"Remember to cover your pots while you cook. It consumes up to 70% less energy.","category ":0,"icon":"id1_cover_your_pots.png","onetime":"FALSE","interval":1,"notificationTime":17,"timesDid":0,"devicesNeeded":"[]"},
-   {"Id":2,"title":"Turn off your hotplate","description":"Turn off the hotplate until 15 minutes before, it will continue to heat up and finish cooking your dishes","category ":0,"icon":"id2_turn_off _your_hotplate.png","onetime":"FALSE","interval":1,"notificationTime":17,"timesDid":0,"devicesNeeded":"[10]"},
+     {"Id":1,"title":"Cover your pots","description":"Remember to cover your pots while you cook. It consumes up to 70% less energy.","category ":0,"icon":"id1_cover_your_pots","onetime":"FALSE","interval":1,"notificationTime":17,"timesDid":0,"devicesNeeded":"[]"},
+   {"Id":2,"title":"Turn off your hotplate","description":"Turn off the hotplate until 15 minutes before, it will continue to heat up and finish cooking your dishes","category ":0,"icon":"id2_turn_off_your_hotplate","onetime":"FALSE","interval":1,"notificationTime":17,"timesDid":0,"devicesNeeded":"[10]"},
    {"Id":3,"title":"Preheating your oven","description":"Do not exceed 10 minutes for preheating the oven.","category ":0,"icon":"id3_preheating","onetime":"FALSE","interval":1,"notificationTime":17,"timesDid":0,"devicesNeeded":"[4]"},
    {"Id":4,"title":"Don’t open your oven","description":"Remember to not open your oven during operation as it lowers the temperature by 15 °.","category ":0,"icon":"id4_oven_open","onetime":"FALSE","interval":1,"notificationTime":17,"timesDid":0,"devicesNeeded":"[4]"},
    {"Id":5,"title":"Doing the dishes","description":"Be careful not to wash under the running tap. Instead, let your dishes sit in a sink or basin filled with water and washing-up liquid, and rinse in a bowl of fresh water. ","category ":0,"icon":"id5_doing_the_dishes","onetime":"FALSE","interval":1,"notificationTime":18,"timesDid":0,"devicesNeeded":"[]"},
@@ -26,5 +26,5 @@
    {"Id":23,"title":"LED lamps","description":"Replace energy-consuming incandescent lamps with LED lamps. They consume four times less and last up to 10 years.","category ":3,"icon":"id23_led_lamp","onetime":"TRUE","interval":0,"notificationTime":0,"timesDid":0,"devicesNeeded":"[]"},
    {"Id":24,"title":"Summer temperatur ","description":"Conditions during the summer: optimal temperature of 24.5 ° C with acceptable range of 23 to 26 ° C.","category ":2,"icon":"id24_summer_temperatur","onetime":"TRUE","interval":0,"notificationTime":0,"timesDid":0,"devicesNeeded":"[5]"},
    {"Id":25,"title":"Winter temperatur","description":"Winter conditions: optimal temperature of 22 ° C with acceptable range of 20 to 23.5 ° C.","category ":2,"icon":"id25_winter_temperatur","onetime":"TRUE","interval":0,"notificationTime":0,"timesDid":0,"devicesNeeded":"[7]"}]
-   
+  
 }
