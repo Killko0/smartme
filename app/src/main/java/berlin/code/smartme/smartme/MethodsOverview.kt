@@ -45,10 +45,10 @@ class MethodsOverview : AppCompatActivity(),BottomNavigation.OnFragmentInteracti
         listView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             Log.d("MethodsOverview", listView.getItemAtPosition(position).toString())
         }
-        listView.setOnItemClickListener{
-            parent, view, position, id -> val methodsIntent = Intent(this,MethodDetailActivity::class.java)
-            startActivity(methodsIntent)
-        }
+//        listView.setOnItemClickListener{
+//            parent, view, position, id -> val methodsIntent = Intent(this,MethodDetailActivity::class.java)
+//            startActivity(methodsIntent)
+//        }
 
 
     }

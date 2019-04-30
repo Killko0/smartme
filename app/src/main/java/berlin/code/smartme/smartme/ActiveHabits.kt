@@ -91,6 +91,7 @@ class ActiveHabits : Fragment() {
             habit_1?.text = habitTitles[0]
             habit_2?.text = habitTitles[1]
             habit_3?.text = habitTitles[2]
+
         }
     }
 
