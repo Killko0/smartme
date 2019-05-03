@@ -7,7 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
@@ -28,7 +28,7 @@ class MethodsOverview : AppCompatActivity(),BottomNavigation.OnFragmentInteracti
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_methods_overview)
-
+        //Getting the JSON data of all habits
         sharedPref = this.getSharedPreferences("habits", Context.MODE_PRIVATE)
         val chosenHabits = sharedPref.all
         habitsData= HabitsData()
@@ -36,7 +36,7 @@ class MethodsOverview : AppCompatActivity(),BottomNavigation.OnFragmentInteracti
         val methods= mutableListOf<String>()
 
         for (i in 0 until habits.length()){
-            var habit = habits.getJSONObject(i)
+            val habit = habits.getJSONObject(i)
             methods.add(habit["title"].toString())
         }
         val adapter =  Habit(this,habits)///ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, methods)
@@ -51,11 +51,6 @@ class MethodsOverview : AppCompatActivity(),BottomNavigation.OnFragmentInteracti
 //        }
 
 
-    }
-
-    fun displayMethodDetail(view:View){
-        val methodsIntent = Intent(this,MethodDetailActivity::class.java)
-        startActivity(methodsIntent)
     }
 
 }

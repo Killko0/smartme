@@ -1,12 +1,9 @@
 package berlin.code.smartme.smartme
 
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,11 +18,8 @@ class HabitChoosing : Fragment() {
     var count = 0
     var habitId =0
     private lateinit var sharedPref:SharedPreferences
-    companion object {
-        fun newInstance() = HabitChoosing()
-    }
+    companion object;
     private val thisScope = this
-    private lateinit var viewModel: HabitChoosingViewModel
     private lateinit var habitsData : HabitsData
     private val btnWeek1: ImageView? = view?.findViewById(R.id.week_1)
 
@@ -45,7 +39,6 @@ class HabitChoosing : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        //viewModel = ViewModelProviders.of(this).get(HabitChoosingViewModel::class.java)
         val habit = habits.getJSONObject(count)
         val title = habit["title"].toString()
         val description = habit["description"].toString()
@@ -82,8 +75,6 @@ class HabitChoosing : Fragment() {
         habit_title.text = title
         habit_description.text = description
 
-
     }
-
 
 }

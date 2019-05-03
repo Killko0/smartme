@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="berlin.code.smartme.smartme">
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
@@ -14,7 +13,10 @@
             android:theme="@style/AppTheme"
            >
         <activity android:name=".Roadmap">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
         <service
@@ -37,8 +39,6 @@
         </activity>
         <activity android:name=".survey.StartSurvery">
         </activity>
-        <activity android:name=".Splash">
-        </activity>
         <activity android:name=".MethodDetailActivity">
         </activity>
         <activity
@@ -46,15 +46,8 @@
                 android:label="@string/title_activity_methods_overview"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
         <receiver
-                android:name=".MyBroadcastReceiver"
+                android:name=".notifcations.MyBroadcastReceiver"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
@@ -62,5 +55,4 @@
             </intent-filter>
         </receiver>
     </application>
-
 </manifest>
