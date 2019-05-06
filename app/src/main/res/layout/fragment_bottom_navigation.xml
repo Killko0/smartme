@@ -6,7 +6,7 @@
         android:layout_width="match_parent" android:layout_height="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" tools:context=".BottomNavigation">
+        app:layout_constraintBottom_toBottomOf="parent" tools:context=".ui.BottomNavigation">
 
 
     <FrameLayout

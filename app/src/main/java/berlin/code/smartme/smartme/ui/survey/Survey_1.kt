@@ -1,4 +1,4 @@
-package berlin.code.smartme.smartme.survey
+package berlin.code.smartme.smartme.ui.survey
 
 import android.content.Context
 import android.net.Uri

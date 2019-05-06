@@ -1,19 +1,15 @@
-package berlin.code.smartme.smartme.survey
+package berlin.code.smartme.smartme.ui.survey
 
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import berlin.code.smartme.smartme.HabitChoosing
 
 import berlin.code.smartme.smartme.R
-import berlin.code.smartme.smartme.Roadmap
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +25,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class StartSurvey : Fragment(),Survey_1.OnFragmentInteractionListener {
+class StartSurvey : Fragment(), Survey_1.OnFragmentInteractionListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null

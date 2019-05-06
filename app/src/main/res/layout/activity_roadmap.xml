@@ -104,7 +104,7 @@ android:id="@+id/frameRoadmap">
                                                  android:layout_height="match_parent">
         <fragment
                 android:layout_width="0dp"
-                android:layout_height="56dp" android:name="berlin.code.smartme.smartme.BottomNavigation"
+                android:layout_height="56dp" android:name="berlin.code.smartme.smartme.ui.BottomNavigation"
                 android:id="@+id/fragment2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"

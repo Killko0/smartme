@@ -1,4 +1,4 @@
-package berlin.code.smartme.smartme
+package berlin.code.smartme.smartme.ui
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import berlin.code.smartme.smartme.R
+import berlin.code.smartme.smartme.ui.roadmap.Roadmap
+import berlin.code.smartme.smartme.ui.habitlist.MethodsOverview
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import kotlinx.android.synthetic.main.fragment_bottom_navigation.*

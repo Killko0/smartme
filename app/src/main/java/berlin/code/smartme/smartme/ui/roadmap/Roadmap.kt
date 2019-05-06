@@ -1,4 +1,4 @@
-package berlin.code.smartme.smartme
+package berlin.code.smartme.smartme.ui.roadmap
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,12 +9,15 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ScrollView
 import androidx.work.WorkManager
+import berlin.code.smartme.smartme.R
 import berlin.code.smartme.smartme.data.HabitsData
 import berlin.code.smartme.smartme.notifcations.repeatingHabitNotificationRequest
-import berlin.code.smartme.smartme.survey.StartSurvey
+import berlin.code.smartme.smartme.ui.BottomNavigation
+import berlin.code.smartme.smartme.ui.survey.StartSurvey
 import org.json.JSONArray
 
-class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListener,StartSurvey.OnFragmentInteractionListener,ActiveHabits.OnFragmentInteractionListener{
+class Roadmap : AppCompatActivity(), BottomNavigation.OnFragmentInteractionListener,
+    StartSurvey.OnFragmentInteractionListener, ActiveHabits.OnFragmentInteractionListener {
     private val fragMan = supportFragmentManager
     private lateinit var habitsData : HabitsData
     private lateinit var sharedPref: SharedPreferences
@@ -51,7 +54,9 @@ class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListen
             btnWeek1?.setOnClickListener{v:View -> stationPressed(v)}
         }
         else{
-            fragMan?.beginTransaction()?.add(R.id.active_habits_layout,ActiveHabits(),"activeHabits_1")?.commit()
+            fragMan?.beginTransaction()?.add(
+                R.id.active_habits_layout,
+                ActiveHabits(),"activeHabits_1")?.commit()
         }
 
 
@@ -62,7 +67,9 @@ class Roadmap : AppCompatActivity(),BottomNavigation.OnFragmentInteractionListen
     }
 
     private fun stationPressed(view: View){
-        fragMan.beginTransaction().add(R.id.habitChoosingLayout,HabitChoosing(),"fragment").commit()
+        fragMan.beginTransaction().add(
+            R.id.habitChoosingLayout,
+            HabitChoosing(),"fragment").commit()
 
     }
     fun getHabits():JSONArray{

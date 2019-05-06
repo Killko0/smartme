@@ -1,7 +1,8 @@
-package berlin.code.smartme.smartme
+package berlin.code.smartme.smartme.ui.habitlist
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import berlin.code.smartme.smartme.R
 
 class MethodDetailActivity : AppCompatActivity() {
 

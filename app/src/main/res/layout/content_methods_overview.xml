@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_methods_overview"
-        tools:context=".MethodsOverview"
+        tools:context=".ui.habitlist.MethodsOverview"
 android:layout_gravity="center">
 
 </android.support.constraint.ConstraintLayout>

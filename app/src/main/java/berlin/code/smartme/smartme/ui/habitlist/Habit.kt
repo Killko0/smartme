@@ -1,16 +1,14 @@
-package berlin.code.smartme.smartme
+package berlin.code.smartme.smartme.ui.habitlist
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import berlin.code.smartme.smartme.R
 import org.json.JSONArray
-import java.lang.Error
 
 class Habit(private val context: Context, private val dataSource: JSONArray): BaseAdapter() {
     private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

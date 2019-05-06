@@ -1,10 +1,11 @@
-package berlin.code.smartme.smartme.survey
+package berlin.code.smartme.smartme.ui.survey
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import berlin.code.smartme.smartme.R
+import berlin.code.smartme.smartme.survey.Survey_1o
 
 class StartSurvery : AppCompatActivity() {
 

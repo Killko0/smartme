@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBottomNavigationActiveColored"
-        tools:context=".survey.StartSurvery">
+        tools:context=".ui.survey.StartSurvery">
 
     <TextView
             android:text="@string/label_welcome"

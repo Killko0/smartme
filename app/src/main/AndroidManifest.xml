@@ -12,7 +12,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
            >
-        <activity android:name=".Roadmap">
+        <activity android:name=".ui.roadmap.Roadmap">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -37,12 +37,12 @@
         </activity>
         <activity android:name=".survey.Survey_1o">
         </activity>
-        <activity android:name=".survey.StartSurvery">
+        <activity android:name=".ui.survey.StartSurvery">
         </activity>
-        <activity android:name=".MethodDetailActivity">
+        <activity android:name=".ui.habitlist.MethodDetailActivity">
         </activity>
         <activity
-                android:name=".MethodsOverview"
+                android:name=".ui.habitlist.MethodsOverview"
                 android:label="@string/title_activity_methods_overview"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>

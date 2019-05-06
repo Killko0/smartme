@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MethodsOverview">
+        tools:context=".ui.habitlist.MethodsOverview">
 
     <ListView
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
     <include layout="@layout/content_methods_overview"/>
     <fragment
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:name="berlin.code.smartme.smartme.BottomNavigation"
+            android:layout_height="wrap_content" android:name="berlin.code.smartme.smartme.ui.BottomNavigation"
             android:id="@+id/fragment2"
             app:layout_anchorGravity="right|bottom" app:layout_anchor="@+id/listview"/>
 

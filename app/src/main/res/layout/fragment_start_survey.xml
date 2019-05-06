@@ -4,7 +4,7 @@
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="240dp"
                                              android:layout_height="300dp"
-                                             tools:context=".survey.StartSurvey" android:background="@color/white">
+                                             tools:context=".ui.survey.StartSurvey" android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

@@ -1,14 +1,14 @@
-package berlin.code.smartme.smartme
+package berlin.code.smartme.smartme.ui.roadmap
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import berlin.code.smartme.smartme.R
 import berlin.code.smartme.smartme.data.HabitsData
 import kotlinx.android.synthetic.main.fragment_active_habits.*
 import org.json.JSONArray
@@ -70,7 +70,7 @@ class ActiveHabits : Fragment() {
         } else {
             throw RuntimeException("$context must implement OnFragmentInteractionListener")
         }
-        habitsData= HabitsData()
+        habitsData = HabitsData()
         habits = habitsData.readJson(context.assets.open("habits.json"))
         sharedPref = context.getSharedPreferences("habits",Context.MODE_PRIVATE)
 

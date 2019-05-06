@@ -1,4 +1,4 @@
-package berlin.code.smartme.smartme
+package berlin.code.smartme.smartme.ui.roadmap
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import berlin.code.smartme.smartme.R
 import berlin.code.smartme.smartme.data.HabitsData
 import kotlinx.android.synthetic.main.habit_choosing_fragment.*
 import org.json.JSONArray
@@ -58,7 +59,9 @@ class HabitChoosing : Fragment() {
     private fun onAccept(view:View, fragment:Fragment, accept:Boolean){
         if (count >= 3) {
             fragment.fragmentManager?.beginTransaction()?.remove(fragment)?.commit()
-            fragmentManager?.beginTransaction()?.add(R.id.active_habits_layout,ActiveHabits(),"activeHabits_2")?.commit()
+            fragmentManager?.beginTransaction()?.add(
+                R.id.active_habits_layout,
+                ActiveHabits(),"activeHabits_2")?.commit()
             btnWeek1?.setOnClickListener(null)
         }
         if (accept){
@@ -70,10 +73,9 @@ class HabitChoosing : Fragment() {
         }
         habitId++
         val habit = habits.getJSONObject(habitId)
-        val title = habit["title"].toString()
-        val description = habit["description"].toString()
-        habit_title.text = title
-        habit_description.text = description
+        habit["title"].toString()
+        habit_title.text = habit["title"].toString()
+        habit_description.text =  habit["description"].toString()
 
     }
 
