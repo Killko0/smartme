@@ -16,15 +16,11 @@ class HabitsData{
             val reader = JSONObject(inputString)
             Log.d("JSON1", inputString)
             habits = reader.getJSONArray("habits")!!
-            val habit = habits.getJSONObject(0)
-            Log.d("JSON", habit["title"].toString())
         } catch(e:Exception) {
             Log.d("JSON", e.toString())
 
         }
         return habits
     }
-
-
 
 }

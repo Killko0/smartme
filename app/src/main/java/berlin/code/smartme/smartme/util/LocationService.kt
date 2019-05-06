@@ -1,4 +1,4 @@
-package berlin.code.smartme.smartme
+package berlin.code.smartme.smartme.util
 
 import android.Manifest
 import android.app.Service

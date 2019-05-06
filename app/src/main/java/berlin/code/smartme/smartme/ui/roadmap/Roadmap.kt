@@ -15,14 +15,13 @@ import berlin.code.smartme.smartme.notifcations.repeatingHabitNotificationReques
 import berlin.code.smartme.smartme.ui.BottomNavigation
 import berlin.code.smartme.smartme.ui.survey.StartSurvey
 import org.json.JSONArray
-
+//This activity is the entry point of the app
 class Roadmap : AppCompatActivity(), BottomNavigation.OnFragmentInteractionListener,
     StartSurvey.OnFragmentInteractionListener, ActiveHabits.OnFragmentInteractionListener {
     private val fragMan = supportFragmentManager
     private lateinit var habitsData : HabitsData
     private lateinit var sharedPref: SharedPreferences
     override fun onFragmentInteraction(uri: Uri) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
